@@ -1,0 +1,1 @@
+cat 'filename.txt' | perl -naF';' -e 'if($F[4] > 1048576){print $F[8]; $i++;}; }{ print "Total strings: $.. Matching strings: $i.\n"'
