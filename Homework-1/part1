@@ -1,0 +1,1 @@
+ls -l | perl -ne 'tr/ //s; unless($.==1){print join(";", split(/ /,$_,9))}'
