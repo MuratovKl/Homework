@@ -34,19 +34,19 @@ sub tokenize {
 given($expr) {
 	when(/(?<![0-9])e/){die "Invalid expression whis 'e'!"}
 
-	when(/\.(?![0-9])/){die "Wrong use of '.'!"}
+	when(/\.(?![0-9])/){die "Wrong usage of '.'!"}
 	
-	when(/(?<=\.[0-9])\.[0-9]/){die "Wrong use of '.'!"}
+	when(/(?<=\.[0-9])\.[0-9]/){die "Wrong usage of '.'!"}
 
 	when(/\/(?=0)/){die "Division by zero!"}
 
-	when(/[-+*\/^][*\/^]/){die "Invalid use of binary operator!"}
+	when(/[-+*\/^][*\/^]/){die "Invalid usage of binary operator!"}
 	
-	when(/^[-+]+[^0-9(]/){die "Invalid use of unary operator!"}
+	when(/^[-+]+[^0-9(]/){die "Invalid usage of unary operator!"}
 	
 	when(/^[-+\/*^]$/){die "Bad expression!"}
 	
-	when(/\d[-+\/^*]/){die "Bad expression!"}
+	when(/\d[-+\/^*]\)?$/){die "Bad expression!"}
 }
 
 @res= split m{((?<!e)[-+]|[*()/^])}, $expr;
