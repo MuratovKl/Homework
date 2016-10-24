@@ -29,8 +29,8 @@ sub tokenize {
 	chomp(my $expr = shift);
 	my @res;
 	my $trig=2;
-
-$expr=~ tr/ //ds;
+	if ($expr =~ /\d+\s+\d+/){die "Bad epression!"};
+	$expr=~ tr/ //ds;
 given($expr) {
 	when(/(?<![0-9])e/){die "Invalid expression whis 'e'!"}
 
@@ -43,6 +43,10 @@ given($expr) {
 	when(/[-+*\/^][*\/^]/){die "Invalid use of binary operator!"}
 	
 	when(/^[-+]+[^0-9(]/){die "Invalid use of unary operator!"}
+	
+	when(/^[-+\/*^]$/){die "Bad expression!"}
+	
+	when(/\d[-+\/^*]/){die "Bad expression!"}
 }
 
 @res= split m{((?<!e)[-+]|[*()/^])}, $expr;
