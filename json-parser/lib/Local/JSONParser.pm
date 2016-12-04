@@ -42,7 +42,7 @@ sub parse_json {
             while(!(/\G\s*\}[\'\"]?/gc)) {
                 if (/\G\s*(\".*?\")\s*:/gc) {
                     my $key = $1;
-					$key = parse_json($key);
+		    $key = parse_json($key);
                     $subhesh{$key} = parse_json($$source);
                     /\G\s*,/gc;
                 }
