@@ -1,13 +1,11 @@
 #!/usr/bin/env perl
-
 use strict;
 use warnings;
+use utf8;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
-
 use Local::JSONParser v1.0.0;
 use DDP;
-
 @ARGV or die "Usage:\n\tperl $0 file\n";
 my $file = shift @ARGV;
 
