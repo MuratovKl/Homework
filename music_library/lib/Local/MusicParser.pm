@@ -4,6 +4,7 @@ our @EXPORT_OK = qw( music_parse );
 our @EXPORT = qw( music_parse );
 use strict;
 use warnings;
+use 5.010;
 
 my $i = 0;
 
