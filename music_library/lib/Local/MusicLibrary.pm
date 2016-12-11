@@ -39,10 +39,7 @@ sub music_library {
                 print '-' x $maxlen{$item};
                 ++$j == ~~@$template ? print "|\n" : print '+';
             }
-            
         }
-       
-       
     }
     printf ("\\%s/\n",'-' x ($maxstring - 2)); 
 }
