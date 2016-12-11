@@ -5,18 +5,18 @@ package Local::Source; {
 	sub new {
 		my ($class, %params) = @_;
 		my $self = bless \%params, $class;
-		$self->start_again;
+		$self -> start_again;
 		return $self;
 	}
 	
 	sub next_iter {
 		my ($self) = @_;
-		return $self->{iter}++;
+		return $self -> {iter}++;
 	}
 	
 	sub start_again {
 		my ($self) = @_;
-		$self->{iter} = 0;
+		$self -> {iter} = 0;
 	}
 }
 

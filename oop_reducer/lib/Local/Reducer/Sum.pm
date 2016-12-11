@@ -6,12 +6,12 @@ package Local::Reducer::Sum; {
 	sub reduce {
 		my ($self) = @_;
 		
-		my $el = $self->{source}->next() or return;
+		my $el = $self -> {source} -> next() or return;
 		
-		my $row = $self->{row_class}->new(str => $el)->get($self->{field});
+		my $row = $self -> {row_class} -> new(str => $el) -> get($self -> {field});
 		return unless defined $row;
 				
-		return $self->{reduced} += $row ;
+		return $self -> {reduced} += $row ;
 	}
 	
 }
