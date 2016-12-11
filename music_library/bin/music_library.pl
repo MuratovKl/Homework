@@ -24,5 +24,3 @@ while (<>) {music_parse (\@data, \$_);}
 @data = music_args (\@data, \%args, \@template);
 
 music_library (\@data, \@template);
-
-#p @data;
