@@ -16,11 +16,8 @@ sub music_parse {
         \/(?<track>[\w\s\'\"\(\)\-]+)
         \.(?<format>\w+)
         /xgc) {
-        $$data[$#$data + 1] = {"band" => $+{band},
-                               "year" => $+{year},
-                               "album" => $+{album},
-                               "track" => $+{track},
-                               "format" => $+{format}};
+        my %hesh = %+;
+        $$data[$#$data + 1] = \%hesh;
     }
     else {
         say "Wrong format! Skipped.";
