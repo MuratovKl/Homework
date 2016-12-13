@@ -2,9 +2,9 @@ use strict;
 use warnings;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
-use Local::MusicParser v0.0.1;
-use Local::MusicArgs v0.0.1;
-use Local::MusicLibrary v0.0.1;
+use Local::MusicParser v1.0.0;
+use Local::MusicArgs v1.0.0;
+use Local::MusicLibrary v1.0.0;
 use Getopt::Long;
 
 my %args;
