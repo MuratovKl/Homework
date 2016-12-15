@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use parent 'Local::Reducer';
 
-sub makereduce {
+sub makereduce { 
 	my $self = shift;
 	my $item = $self -> {source} -> next or return;
 	my $row = $self -> {row_class} -> new(str => $item);
