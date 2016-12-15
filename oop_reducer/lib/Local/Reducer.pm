@@ -1,36 +1,31 @@
-package Local::Reducer; {
+package Local::Reducer;
+
 use strict;
-use utf8;
 use warnings;
-our $VERSION = '1.00';
+use utf8;
+our $VERSION = '1.0.0';
 
-	sub new {
-		my ($class, %params) = @_;
-		$params{reduced} = $params{initial_value};
-		return bless \%params, $class;
-	}
+sub new {
+    my ($class, %args) = @_;
+    $args{reduced} = $args{initial_value};
+    return bless \%args, $class;
+}
 
-	sub reduced {
-		my $self = shift;
-		return $self -> {reduced};
-	}
-	
-	sub reduce {}
-
-	sub reduce_all {
-		my $self = shift;
-		$self -> {reduced} = $self -> {initial_value};
-		$self -> {source}->start_again;
-		while (defined $self -> reduce()) {}
-		return $self -> reduced();
-	}
-	
-	sub reduce_n {
+sub reduce_n {
 		my ($self, $n) = @_;
-		$self -> {reduced} = $self -> {initial_value};
-		for (my $i = 0; $i < $n && defined $self -> reduce(); $i++) {}
-		return $self->reduced();
+		for (my $i = 0; $i < $n && defined $self -> makereduce; $i++) {};
+		return $self->reduced;
 	}
+
+sub reduced {
+    my $self = shift;
+    return $self -> {reduced};
+}
+
+sub reduce_all {
+    my $self = shift;
+	while (defined $self -> makereduce) {};
+	return $self -> reduced();
 }
 
 1;

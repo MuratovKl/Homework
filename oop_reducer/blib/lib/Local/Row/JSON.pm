@@ -1,14 +1,13 @@
-package Local::Row::JSON; {
-	use strict;
-	use warnings;
-	use parent 'Local::Row';
-	use JSON::XS;	
-	
+package Local::Row::JSON;
+
+use strict;
+use warnings;
+use JSON::XS;
+use parent 'Local::Row';
+
 	sub parse {
-		my $self = shift;
-		my $str = shift;
+		my ($self, $str) = @_;
 		return JSON::XS -> new -> utf8 -> decode($str);
 	}
-}
 
 1;
