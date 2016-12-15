@@ -12,10 +12,10 @@ sub new {
 }
 
 sub reduce_n {
-		my ($self, $n) = @_;
-		for (my $i = 0; $i < $n && defined $self -> makereduce; $i++) {};
-		return $self->reduced;
-	}
+    my ($self, $n) = @_;
+    for (my $i = 0; $i < $n && defined $self -> makereduce; $i++) {};
+    return $self->reduced;
+    }
 
 sub reduced {
     my $self = shift;
