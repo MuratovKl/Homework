@@ -25,7 +25,7 @@ sub reduced {
 sub reduce_all {
     my $self = shift;
 	while (defined $self -> makereduce) {};
-	return $self -> reduced();
+	return $self -> reduced;
 }
 
 1;
