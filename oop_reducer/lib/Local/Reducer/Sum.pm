@@ -10,7 +10,7 @@ sub makereduce {
 	my $row = $self->{row_class}->new(str => $item)->get($self->{field},"Don't have this!");
 	return if $row eq "Don't have this!";		
 	return $self->{reduced} += $row ;
-	}
+}
 
 
 1;
