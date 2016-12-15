@@ -6,8 +6,8 @@ use parent 'Local::Source::Array';
 
 sub new {
     my ($class, %args) = @_;
-    my $delimiter = defined $args{delimiter} ? $args{delimiter} : "\n"; 
-    return $class -> SUPER::new(array => [split $delimiter, $args{text}]);
+    my $delim = defined $args{delimiter} ? $args{delimiter} : "\n"; 
+    return $class -> SUPER::new(array => [split $delim, $args{text}]);
 }
 
 1;

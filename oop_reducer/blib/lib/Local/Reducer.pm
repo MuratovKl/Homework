@@ -13,7 +13,6 @@ sub new {
 
 sub reduce_n {
 		my ($self, $n) = @_;
-		#$self -> {reduced} = $self -> {initial_value};
 		for (my $i = 0; $i < $n && defined $self -> makereduce; $i++) {};
 		return $self->reduced;
 	}
@@ -25,8 +24,6 @@ sub reduced {
 
 sub reduce_all {
     my $self = shift;
-   # $self -> {reduced} = $self -> {initial_value};
-	#$self -> {source} -> {iter} = 0;
 	while (defined $self -> makereduce) {};
 	return $self -> reduced();
 }

@@ -5,14 +5,13 @@ package Local::Row;
 	
 	sub new {
 		my ($class, %args) = @_;
-		my %struct = (struct => $class -> parse($args{str}));
-		my $obj = bless \%struct, $class;
-		return $obj;
+		my $line = $class -> parse($args{str});
+		return bless \$line, $class;
 	}
 	
 	sub get {
 		my ($self, $name, $default) = @_;
-    	exists $self -> {struct} -> {$name} ? return $self -> {struct} -> {$name} : return $default;
+    	exists $$self -> {$name} ? return $$self -> {$name} : return $default;
 	}
 
 1;
