@@ -12,10 +12,14 @@ sub new {
 }
 
 sub reduce_n {
-		my ($self, $n) = @_;
-		for (my $i = 0; $i < $n && defined $self -> makereduce; $i++) {};
-		return $self->reduced;
-	}
+	my ($self, $n) = @_;
+    for (my $i = 0; $i < $n; $i++) {
+        my $item = $self -> {source}->next or return $self -> reduced;
+        my $row = $self -> {row_class} -> new(str => $item);
+        $self -> makereduce($row)
+    }
+    return $self -> reduced;
+}
 
 sub reduced {
     my $self = shift;
@@ -24,8 +28,11 @@ sub reduced {
 
 sub reduce_all {
     my $self = shift;
-	while (defined $self -> makereduce) {};
-	return $self -> reduced;
+    while (1) {
+        my $item = $self -> {source}->next or return $self -> reduced;
+        my $row = $self -> {row_class} -> new(str => $item);
+        $self -> makereduce($row);
+    }
 }
 
 1;

@@ -6,12 +6,12 @@ package Local::Row;
 	sub new {
 		my ($class, %args) = @_;
 		my $line = $class -> parse($args{str});
-		return bless \$line, $class;
+		return bless $line, $class;
 	}
 	
 	sub get {
 		my ($self, $name, $default) = @_;
-    	exists $$self -> {$name} ? return $$self -> {$name} : return $default;
+    	exists $self -> {$name} ? return $self -> {$name} : return $default;
 	}
 
 1;
